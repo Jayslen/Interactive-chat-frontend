@@ -13,6 +13,7 @@ export function UseReplies ({ data, parentElm }) {
       elementToMatch: data.id
     })
     increse({ arr: newComments[index].replies[replyIndex] })
+    localStorage.setItem('comments', JSON.stringify(newComments));
     setCommentsData(newComments)
   }
 
@@ -23,6 +24,8 @@ export function UseReplies ({ data, parentElm }) {
       elementToMatch: data.id
     })
     decrese({ arr: newComments[index].replies[replyIndex] })
+    localStorage.setItem('comments', JSON.stringify(newComments));
+
     setCommentsData(newComments)
   }
   return { increseReply, decreseReply }

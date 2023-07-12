@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import { commentsContext } from '../context/CommnentsContext'
 
 export function CommentsSection () {
-const { commentsData } = useContext(commentsContext)
+  const { commentsData } = useContext(commentsContext)
 
   return (
     <>
