@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+    @apply flex gap-3 h-auto bg-white shadow-md p-3 rounded-lg mt-3;
+}
