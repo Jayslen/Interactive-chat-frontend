@@ -1,7 +1,7 @@
 import { useCreateComment } from '../hooks/useCreateComments'
 
-export function Footer () {
-  const {handleSubmit,currentUser} = useCreateComment()  
+export function Footer ({methodReply, methodEdit,method, isOwner}) {
+  const { currentUser } = useCreateComment()
   return (
     <footer className='w-[600px] container'>
       <img
@@ -9,7 +9,7 @@ export function Footer () {
         alt={currentUser.username + 'avatar'}
         className='w-10 h-10'
       />
-      <form className='flex grow gap-2' onSubmit={handleSubmit}>
+      <form className='flex grow gap-2' onSubmit={isOwner ? methodEdit : isOwner === undefined ?  method : methodReply}>
         <textarea
           placeholder='Write your message'
           rows={4}

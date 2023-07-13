@@ -9,3 +9,7 @@ export function increse ({ arr }) {
 export function decrese ({ arr }) {
   arr.score--
 }
+
+const openPopup = ({showPopup}) => {
+  return !showPopup
+}

@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { DeleteIcon, EditIcon, ReplyIcon } from './icons'
 import { commentsContext } from '../context/CommnentsContext'
 
-export function UserHeader ({ image, username, createdAt, method }) {
+export function UserHeader({ image, username, createdAt, methodOpenPopup, methodReply }) {
   const { currentUser } = useContext(commentsContext)
   const isOwner = currentUser.username === username
 
@@ -16,13 +16,13 @@ export function UserHeader ({ image, username, createdAt, method }) {
       <aside className='flex gap-4'>
         {isOwner
           ? (
-            <div className='flex items-center gap-1 cursor-pointer' onClick={method}>
+            <div className='flex items-center gap-1 cursor-pointer' onClick={methodOpenPopup}>
               <DeleteIcon />
               <p className='text-sm font-bold text-[hsl(358,79%,66%)]'>Delete</p>
             </div>
-            )
+          )
           : null}
-        <div className='flex items-center gap-1 cursor-pointer'>
+        <div className='flex items-center gap-1 cursor-pointer' onClick={methodReply}>
           {isOwner ? <EditIcon /> : <ReplyIcon />}
           <p className='text-sm font-bold text-[hsl(238,40%,52%)]'>
             {isOwner ? 'Edit' : 'Reply'}
@@ -30,5 +30,6 @@ export function UserHeader ({ image, username, createdAt, method }) {
         </div>
       </aside>
     </header>
+
   )
 }
